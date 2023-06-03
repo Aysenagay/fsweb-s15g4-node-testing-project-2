@@ -5,9 +5,9 @@ async function checkGorevId(req, res, next) {
     let id = req.params.id || req.body.GorevId;
     const isExistGorev = await gorevModel.getById(id);
     if (!isExistGorev) {
-      res.status(404).json({ meesage: "Böyle bir gorev yok" });
+      res.status(404).json({ message: "Böyle bir gorev yok" });
     } else {
-      req.cuurentGorev = isExistGorev;
+      req.currentGorev = isExistGorev;
       next();
     }
   } catch (error) {
